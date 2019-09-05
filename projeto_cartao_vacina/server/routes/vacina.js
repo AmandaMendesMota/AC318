@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const vacina = require('../controllers/vacina.controller.js');
+const vacina = require('../controllers/vacina');
 
 router.get('/', vacina.getVacinas);
 router.post('/', vacina.createVacina);

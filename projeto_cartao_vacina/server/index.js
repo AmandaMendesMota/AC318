@@ -12,8 +12,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 //Routes
-app.use('/api/vacina', require('./routes/vacina.routes'));
-app.use('/api/paciente', require('./routes/paciente.routes'));
+app.use('/api/vacina', require('./routes/vacina'));
+app.use('/api/paciente', require('./routes/paciente'));
 
 //Starting the server
 app.listen(app.get('port'), () =>{

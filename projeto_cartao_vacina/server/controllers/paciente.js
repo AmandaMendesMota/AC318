@@ -3,7 +3,11 @@ const Vacina = require('../models/vacina');
 
 const paciente = {};
 
-paciente.getPacientes = async (req, res) => { //obtém os dados de todos os pacientes que estão no banco de dados
+paciente.getPaciente = async (req, res) => { //obtém os dados de todos os pacientes que estão no banco de dados
+    if(req.params.id){
+        const paciente = await Paciente.findById(req.params.id);
+        res.json(paciente);
+    }
     const pacientes = await Paciente.find();
     res.json(pacientes);
 };
@@ -14,11 +18,6 @@ paciente.createPaciente = async (req, res) => { //cria um novo paciente no banco
     res.json({
         'status': 'Paciente Salvo!'
     });
-}
-
-paciente.getPaciente = async (req, res) => { //obtém os dados de um paciente específico 
-    const paciente = await Paciente.findById(req.params.id);
-    res.json(paciente);
 }
 
 paciente.editPaciente = async (req, res) => {
